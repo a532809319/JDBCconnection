@@ -16,7 +16,7 @@ public class TransactionTest {
         try {
              con=getConnection();
 
-            con.setAutoCommit(false);
+           con.setAutoCommit(false);
 
             insertUserData(con);
              insertAddressData(con);
@@ -24,7 +24,7 @@ public class TransactionTest {
         } catch (SQLException e) {
             e.printStackTrace();
             try {
-               con.rollback();
+              // con.rollback();
                 System.out.print("食物回滚");
             } catch (Exception e1) {
                 e1.printStackTrace();
@@ -48,16 +48,16 @@ public class TransactionTest {
     public static void insertUserData(Connection con) throws SQLException{
 
      // Connection con=getConnection();
-            String sql="insert into tbl_user(id,name ,password,email)"+"values('10','limeng','222asf','dsfa@qq.com')";
+            String sql="insert into tbl_user(id,name ,password,email)"+"values(10,'limeng','222asf','dsfa@qq.com')";
             Statement st=con.createStatement();
             int count=st.executeUpdate(sql);
-            System.out.print("一个更新了几条数据"+count);
+            System.out.println("一个更新了几条数据"+count);
             //con.close();
 
     }
     public static void  insertAddressData(Connection con) throws SQLException{
         //Connection con=getConnection();
-            String sql="insert into tbl_address(id,city ,country,user_id)"+"values('1','上海','中国','10')";
+            String sql="insert into tbl_address(id,city,country,user_id)"+"values(1,'shangh','zhongguo',10)";
             Statement st=con.createStatement();
             int count=st.executeUpdate(sql);
             System.out.print("一个更新了几条数据"+count);

@@ -64,7 +64,7 @@ public class JDBCtest {
     }
     public static void main(String[] args) {
         insert();
-        update();
+        //update();
         //delete();
 //        String sql="select * from tbl_user";
 //        Connection con =null;
